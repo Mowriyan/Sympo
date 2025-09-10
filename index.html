@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TECHXPLORE'25 - UCEA CSE Symposium</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    header {
+      background: linear-gradient(135deg, #004080, #0066cc);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+    header h2 {
+      margin: 10px 0 5px;
+      font-size: 22px;
+    }
+    .symposium-title {
+      margin-top: 20px;
+      font-size: 48px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #0099ff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    .tagline {
+      font-size: 20px;
+      font-style: italic;
+      margin: 8px 0 15px;
+      color: #ffeb99;
+      text-shadow: 0 0 5px #ffaa00, 0 0 10px #ff8800;
+      animation: fadeIn 3s ease-in-out;
+    }
+    .event-date {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff, 0 0 15px #0099ff;
+      }
+      to {
+        text-shadow: 0 0 15px #00e6ff, 0 0 25px #00b3ff, 0 0 40px #0088cc;
+      }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    nav {
+      background: #00264d;
+      padding: 12px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #66b3ff;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 {
+      color: #004080;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .events {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.4s, box-shadow 0.4s;
+      cursor: pointer;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #0066cc;
+    }
+    button {
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      margin-top: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background: #0066cc;
+    }
+    button:active {
+      transform: scale(1.2);
+    }
+    footer {
+      background: #004080;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Particle Background -->
+  <canvas id="bg"></canvas>
+
+  <header>
+    <h1>University College of Engineering, Ariyalur</h1>
+    <h2>Department of Computer Science and Engineering</h2>
+    <p class="symposium-title">TECHXPLORE'25</p>
+    <p class="tagline">“Think · Build · Play — The TechXplore Way”</p>
+    <p class="event-date">📅 Conducted on: 26th September 2025</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#registration">Registration</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Symposium</h2>
+    <p style="text-align: center; max-width: 800px; margin: auto;">
+      Welcome to TECHXPLORE'25 — the National Level Technical Symposium organized by the Department of Computer Science and Engineering.
+    </p>
+  </section>
+
+  <section id="events">
+    <h2>Technical Events</h2>
+    <div class="events">
+      <div class="card">
+        <h3>Paper Presentation</h3>
+        <p>Showcase your innovative research ideas and projects.</p>
+      </div>
+      <div class="card">
+        <h3>Debugging</h3>
+        <p>Find and fix bugs faster than your competitors!</p>
+      </div>
+      <div class="card">
+        <h3>Web Design (Front-End)</h3>
+        <p>Create beautiful and functional front-end designs.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:50px;">Non-Technical Events</h2>
+    <div class="events">
+      <div class="card">
+        <h3>Puzzle Solving</h3>
+        <p>Test your logical thinking and problem-solving skills.</p>
+      </div>
+      <div class="card">
+        <h3>Free Fire</h3>
+        <p>Battle it out in the most thrilling mobile gaming competition.</p>
+      </div>
+    </div>
+  </section>
+
+ <section id="registration">
+  <h2>Registration</h2>
+  <p style="text-align: center;">
+    Participants are requested to register online for TECHXPLORE'25. 
+    Click the button below to proceed with your registration.
+  </p>
+  <div style="text-align: center;">
+    <button onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSf8unF53X-WDQnsmdC7FbDrYUhSB96mSbNj8R1gxnDvChiZ1A/viewform'">Register Now</button>
+  </div>
+</section>
+
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align: center;">For queries, reach out at:</p>
+    <p style="text-align: center;">Email: <a href="mailto:techxploreucea25@gmail.com">techxploreucea25@gmail.com</a></p>
+    <p style="text-align: center;">Phone: +91 93444 31737, +91 63809 06989</p>
+    <p style="text-align: center; font-weight: bold; margin-top: 15px;">
+      👩‍🎓 Student Incharges: Ms.Shivani.B & Ms.Sivaranjini.B
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 University College of Engineering, Ariyalur - CSE Department</p>
+  </footer>
+
+  <script>
+    // Scroll reveal animation
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const boxTop = sec.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          sec.classList.add("show");
+        }
+      });
+    });
+
+    // Floating particle background
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 3 + 1,
+        dx: (Math.random() - 0.5) * 1,
+        dy: (Math.random() - 0.5) * 1
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(0, 150, 255, 0.7)";
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // Resize canvas
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
